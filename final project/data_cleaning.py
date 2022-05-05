@@ -1,5 +1,8 @@
 import pandas as pd
-
+__author__ = "Nicholas Marsano, Stefanos Stoikos, Simon Heck"
+"""
+This class contains different utility fucntions that clean and scale the data for use in the classifiers
+"""
 def remove_NA_rows(df):
     columns = df.keys()
     for column in columns:
@@ -26,21 +29,3 @@ def clean_data(data_path,label_column,normalization=0):
         df = mean_normalization(df)
     df.insert(loc=0,column=label_column,value=lblC)
     return df
-
-
-# DATA_PATH = "cs-training.csv"
-# df = pd.read_csv(DATA_PATH)
-
-# print("before")
-# print(df.shape)
-# #df.dropna()
-
-# df= remove_NA_rows(df)
-# df = remove_column(df,0)
-# print("after")
-# print(df.shape)
-# # print(df.head(3))
-# df1= mean_normalization(df)
-# df2 = min_max_normalization(df)
-# print(df1.iloc[1])
-# print(df2.iloc[1])
